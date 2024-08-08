@@ -36,7 +36,7 @@ var books []Book
 // @version 1.0
 // @host https://testapimobile.onrender.com/
 // @BasePath /
-// @schemes http
+// @schemes https
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
