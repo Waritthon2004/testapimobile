@@ -31,10 +31,10 @@ var memberUser = User{
 
 var books []Book
 
-// @title Book API
-// @description This is a sample server for a book API.
+// @title lotto
+// @description This is a sample server for a lotto.
 // @version 1.0
-// @host localhost:8080
+// @host https://testapimobile.onrender.com/
 // @BasePath /
 // @schemes http
 // @securityDefinitions.apikey ApiKeyAuth
@@ -66,6 +66,7 @@ func main() {
 	app.Use(checkMiddleware)
 
 	app.Get("/config", getEnv)
+	app.Get("/hello", getHello)
 	app.Get("/books", getBooks)
 	app.Get("/books/:id", getBook)
 	app.Post("/books", createBook)

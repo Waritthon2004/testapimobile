@@ -4,12 +4,12 @@
     ],
     "swagger": "2.0",
     "info": {
-        "description": "This is a sample server for a book API.",
-        "title": "Book API",
+        "description": "This is a sample server for a lotto.",
+        "title": "lotto",
         "contact": {},
         "version": "1.0"
     },
-    "host": "localhost:8080",
+    "host": "https://testapimobile.onrender.com/",
     "basePath": "/",
     "paths": {
         "/books": {
@@ -30,6 +30,32 @@
                     "books"
                 ],
                 "summary": "Get all books",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Book"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/hello": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",

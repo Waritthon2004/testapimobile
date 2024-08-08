@@ -45,6 +45,32 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/hello": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.Book"
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -75,11 +101,11 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:8080",
+	Host:             "https://testapimobile.onrender.com/",
 	BasePath:         "/",
 	Schemes:          []string{"http"},
-	Title:            "Book API",
-	Description:      "This is a sample server for a book API.",
+	Title:            "lotto",
+	Description:      "This is a sample server for a lotto.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

@@ -7,6 +7,20 @@ import (
 )
 
 // Handler functions
+// getHello godoc
+
+// @Tags books
+// @Accept  json
+// @Produce  json
+// @Security ApiKeyAuth
+// @Success 200 {array} Book
+// @Router /hello [get]
+func getHello(c *fiber.Ctx) error {
+
+	return c.SendString("Hello Lotto")
+}
+
+// Handler functions
 // getBooks godoc
 // @Summary Get all books
 // @Description Get details of all books
