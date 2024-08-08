@@ -34,9 +34,8 @@ var books []Book
 // @title lotto
 // @description This is a sample server for a lotto.
 // @version 1.0
-// @host https://testapimobile.onrender.com/
+// @host testapimobile.onrender.com//books
 // @BasePath /
-// @schemes https
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
