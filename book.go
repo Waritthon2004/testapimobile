@@ -16,7 +16,7 @@ import (
 // @Router /hello [get]
 func getHello(c *fiber.Ctx) error {
 
-	return c.SendString("Hello Lotto")
+	return c.SendString("Hello World !!!!!!!!!!!!!111")
 }
 
 // Handler functions
