@@ -6,8 +6,6 @@ import (
 
 	_ "github.com/abc/docs"
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-	jwtware "github.com/gofiber/jwt/v2"
 	"github.com/gofiber/swagger"
 	"github.com/gofiber/template/html/v2"
 	"github.com/golang-jwt/jwt/v4"
@@ -34,11 +32,13 @@ var books []Book
 // @title lotto
 // @description This is a sample server for a lotto.
 // @version 1.0
-// @host testapimobile.onrender.com//books
+// @host localhost
 // @BasePath /
+// @schemes http
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
+
 func main() {
 
 	engine := html.New("./views", ".html")
@@ -46,23 +46,17 @@ func main() {
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	})
-	app.Use(cors.New())
 
-	// Or extend your config for customization
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: "*",
-		AllowHeaders: "Origin, Content-Type, Accept",
-	}))
 	books = append(books, Book{ID: 1, Title: "NN", Author: "sdsd"})
 	books = append(books, Book{ID: 2, Title: "gg", Author: "zzzz"})
 	app.Get("/swagger/*", swagger.HandlerDefault)
 	app.Post("/login", loging)
 
-	app.Use(jwtware.New(jwtware.Config{
-		SigningKey: []byte(os.Getenv("JWT_SECRET")),
-	}))
+	// app.Use(jwtware.New(jwtware.Config{
+	// 	SigningKey: []byte(os.Getenv("JWT_SECRET")),
+	// }))
 
-	app.Use(checkMiddleware)
+	//app.Use(checkMiddleware)
 
 	app.Get("/config", getEnv)
 	app.Get("/hello", getHello)

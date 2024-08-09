@@ -9,7 +9,6 @@ import (
 // Handler functions
 // getHello godoc
 
-// @Tags books
 // @Accept  json
 // @Produce  json
 // @Security ApiKeyAuth
